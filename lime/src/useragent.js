@@ -29,6 +29,23 @@ lime.userAgent.IOS5 = lime.userAgent.IOS && goog.isFunction(Object['freeze']); /
 lime.userAgent.ANDROID = goog.userAgent.WEBKIT && goog.userAgent.MOBILE &&
     (/(android)/i).test(ua);
 
+/**
+ * Whether the user agent is running android 4 +
+ * @type boolean
+ */
+
+lime.userAgent.ANDROID4 = false;
+var detected = ua.match("Android (.*?);");	
+if(detected && detected.length >= 2){
+	lime.userAgent.ANDROID4 = parseFloat(detected[1]) >= 4.0;
+}
+
+/**
+ * Whether the user agent is running android 4 + With Chrome
+ * @type boolean
+ */
+
+lime.userAgent.ANDROID4CHROME = lime.userAgent.ANDROID4 && (/Chrome/).test(ua);
 
 /**
  * Whether the user agent is running on Windows Phone device
