@@ -90,7 +90,8 @@ lime.transitions.SlideIn.prototype.start = function() {
 lime.transitions.SlideIn.prototype.finish = function() {
     if (this.outgoing_)
         this.outgoing_.setPosition(0, 0);
-
+    if (this.incoming_)
+        this.incoming_.setPosition(0, 0);
     lime.transitions.Transition.prototype.finish.call(this);
 };
 
