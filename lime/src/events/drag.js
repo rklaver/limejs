@@ -198,6 +198,7 @@ lime.events.Drag.prototype.moveHandler_ = function(e) {
  * @param {lime.events.Event} e Event.
  */
 lime.events.Drag.prototype.releaseHandler_ = function(e) {
+    this.moveHandler_(e);
 
     if (this.dropIndex_ != -1) {
         var ev = new goog.events.Event(lime.events.Drag.Event.DROP);
